@@ -16,7 +16,8 @@ class LoginResource extends JsonResource
     {
         return [
             "access_token" => $this->generateToken(),
-            "user" =>  RegisterResource::make( $this )
+            "user" =>  RegisterResource::make( $this ),
+            "id" => $this->id
         ];
     }
 }

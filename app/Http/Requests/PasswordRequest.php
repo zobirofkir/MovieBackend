@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Password as PasswordRule;
+use Illuminate\Support\Facades\Password;
 
 class PasswordRequest extends FormRequest
 {
@@ -23,16 +23,8 @@ class PasswordRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'password' => [
-                'required',
-                'confirmed',
-                PasswordRule::min(8)
-                    ->letters()
-                    ->mixedCase()
-                    ->numbers()
-                    ->uncompromised(),
-            ],
-            'actual_password' => 'required|current_password:api',
+            'password' => ['required', 'confirmed', Password::min(8)->letters()->mixedCase()->numbers()->uncompromised()],
+            "actual_password" => "required|current_password:api"
         ];
     }
 }
