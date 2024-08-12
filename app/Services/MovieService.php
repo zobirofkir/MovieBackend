@@ -24,7 +24,7 @@ class MovieService {
      * @param [type] $page
      * @return void
      */
-    public function getMovies($page)
+    public function getMovies($page) : object
     {
         $apiKey = env("MOVIE_API_KEY");
         $url = env("MOVIE_URL");
@@ -43,9 +43,9 @@ class MovieService {
      * Search Movie
      *
      * @param [type] $query
-     * @return void
+     * @return object
      */
-    public function searchMovie($query)
+    public function searchMovie($query) : object
     {
         $apiKey = env("MOVIE_API_KEY");
         $searchUrl = env("MOVIE_SEARCH_URL");
@@ -64,7 +64,7 @@ class MovieService {
     /**
      * Show Movie
      */
-    public function showMovie($movieId, $page)
+    public function showMovie($movieId, $page) : object
     {
         $apiKey = env("MOVIE_API_KEY");
         $showMovieUrl = str_replace('{movie_id}', $movieId, env("MOVIE_DETAILS_URL"));

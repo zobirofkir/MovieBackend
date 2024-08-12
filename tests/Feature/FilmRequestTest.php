@@ -34,6 +34,4 @@ class FilmRequestTest extends TestCase
         $response = $this->get("api/movies/1/533535");
         $response->assertStatus(200);
     }
-
-    
 }

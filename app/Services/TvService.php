@@ -19,7 +19,7 @@ class TvService {
     /**
      * List tv
      */
-    public function listTv($page)
+    public function listTv($page) : object
     {
         $apiKey = env("MOVIE_API_KEY");
         $tvUrl = env("TV_LIST");
@@ -37,7 +37,7 @@ class TvService {
     /**
      * Show Tv
     */
-     public function showTv($tvId, $page)
+     public function showTv($tvId, $page) : object
      {
          $apiKey = env("MOVIE_API_KEY");
          $showTvUrl = str_replace('{tv_id}', $tvId, env("TV_DETAILS_URL"));
